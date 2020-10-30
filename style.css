@@ -1,6 +1,14 @@
-.container {display: flex;}
+.container {
+    margin: 100px auto;
+    display: flex;    
+    flex-wrap: wrap;
+    max-width: 500px;
+    
+}
 
 .container div{
     width:100px;
     height: 100px;
+    flex-grow: 1;
+
 }

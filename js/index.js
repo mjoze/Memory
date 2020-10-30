@@ -25,9 +25,24 @@ class Memory {
     startGameObject() {
         this.generateGameSize();
         this.generateGameObject();
+        this.createDiv();
     }
+    createDiv() {
+        const container = document.querySelector('.container')
+        for (let i = 1; i <= this.gameSize; i++) {
+            const field = document.createElement('div')
+            field.className = 'colors'
+            container.appendChild(field)
+        }
+        const colorsDiv = document.querySelectorAll('.colors');
+        for (const key in this.gameObj) {
+            colorsDiv[this.gameObj[key][0] - 1].style.backgroundColor = key;
+            colorsDiv[this.gameObj[key][1] - 1].style.backgroundColor = key;
+        }
+    }
+
 }
 
 
-const game = new Memory(10);
+const game = new Memory(20, 'container');
 game.startGameObject()
